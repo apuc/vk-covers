@@ -96,7 +96,7 @@ $(document).on('change', '.RIFile', function (evt) {
         contentType: false,
         // функция успешного ответа сервера
         success: function (respond, status, jqXHR) {
-            $('.l-i-' + wId).append('<img src="' + respond.imgUrl + '">')
+            $('.l-i-' + wId).append('<div class="widget-load-img"><img src="' + respond.imgUrl + '"><span>X</span></div>')
 
         },
         // функция ошибки ответа сервера
@@ -195,7 +195,7 @@ $('#saveCover').on('click', function () {
         //dataType    : 'json',
         // функция успешного ответа сервера
         success: function (respond, status, jqXHR) {
-            console.log(respond);
+
         },
         // функция ошибки ответа сервера
         error: function (jqXHR, status, errorThrown) {
@@ -217,7 +217,6 @@ $('#previewCover').on('click', function () {
         dataType    : 'json',
         // функция успешного ответа сервера
         success: function (respond, status, jqXHR) {
-            console.log(respond.imgUrl);
             var img = document.createElement('img');
             img.setAttribute('src', respond.imgUrl);
             $('.coverPreviewBox').html(img);
@@ -241,7 +240,6 @@ $('#useCover').on('click', function () {
         dataType    : 'json',
         // функция успешного ответа сервера
         success: function (respond, status, jqXHR) {
-            console.log(respond.imgUrl);
             var img = document.createElement('img');
             img.setAttribute('src', respond.imgUrl);
             $('.coverPreviewBox').html(img);
