@@ -39,6 +39,7 @@ use yii\helpers\Html;
         <input type="file" id="coverFile" name="coverFile" />
         <?= Html::a('Сохранить', '#', ['class' => 'btn btn-success', 'id' => 'saveCover']) ?>
         <?= Html::a('Пердпросмотр', '#', ['class' => 'btn btn-success', 'id' => 'previewCover']) ?>
+        <?= Html::a('Применить', '#', ['class' => 'btn btn-success', 'id' => 'useCover']) ?>
         <div class="coverPreviewBox"></div>
     </div>
     <div class="layers">

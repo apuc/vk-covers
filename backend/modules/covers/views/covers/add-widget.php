@@ -52,7 +52,10 @@ use yii\widgets\ActiveForm;
             <div class="load-img l-i-<?= $model->id ?>">
                 <?php if (null !== $imgs): ?>
                     <?php foreach ($imgs as $img): ?>
-                        <?= Html::img($img); ?>
+                        <div class="widget-load-img">
+                            <?= Html::img($img); ?>
+                            <span>X</span>
+                        </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

@@ -135,6 +135,28 @@ a.desc:after {
     object-fit: cover;
 }
 
+.widget-load-img {
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+}
+
+.widget-load-img span {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: RED;
+    font-weight:bold;
+    display: block;
+    height: 5px;
+    width: 5px;
+    cursor: pointer;
+}
+
+.widget-load-img img {
+    object-fit: cover;
+}
+
 .wrap {
     display: flex;
 }
@@ -195,7 +217,8 @@ a.desc:after {
 
 .load-img img {
     width: 100px;
-    margin: 5px;
+    height: 100px;
+    /*margin: 5px;*/
 }
 
 @media screen and (max-width: 1500px) {

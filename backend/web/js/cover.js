@@ -231,6 +231,34 @@ $('#previewCover').on('click', function () {
     return false;
 });
 
+$('#useCover').on('click', function () {
+    $('#saveCover').click();
+    var coverId = $('.wrap').data('cover-id');
+    $.ajax({
+        url: '/secure/covers/covers/preview-cover',
+        type: 'POST', // важно!
+        data: {coverId: coverId, use:1},
+        dataType    : 'json',
+        // функция успешного ответа сервера
+        success: function (respond, status, jqXHR) {
+            console.log(respond.imgUrl);
+            var img = document.createElement('img');
+            img.setAttribute('src', respond.imgUrl);
+            $('.coverPreviewBox').html(img);
+        },
+        // функция ошибки ответа сервера
+        error: function (jqXHR, status, errorThrown) {
+            console.log('ОШИБКА AJAX запроса: ' + status, jqXHR);
+        }
+
+    });
+    return false;
+});
+
+$(document).on('click', '.widget-load-img span', function () {
+    $(this).closest('.widget-load-img').remove();
+});
+
 function loadWidget() {
     $('.layer-item').each(function () {
         var wId = $(this).data('id');

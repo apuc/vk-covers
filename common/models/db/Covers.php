@@ -13,6 +13,7 @@ use Yii;
  * @property string $title
  * @property int $dt_add
  * @property string $img
+ * @property string $img_result
  */
 class Covers extends \yii\db\ActiveRecord
 {
@@ -32,7 +33,7 @@ class Covers extends \yii\db\ActiveRecord
         return [
             [['user_id', 'owner_id', 'title'], 'required'],
             [['user_id', 'owner_id', 'dt_add'], 'integer'],
-            [['title', 'img'], 'string', 'max' => 255],
+            [['title', 'img', 'img_result'], 'string', 'max' => 255],
         ];
     }
 
@@ -48,6 +49,7 @@ class Covers extends \yii\db\ActiveRecord
             'title' => 'Title',
             'dt_add' => 'Dt Add',
             'img' => 'Img',
+            'img_result' => 'Img result',
         ];
     }
 

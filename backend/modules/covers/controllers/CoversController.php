@@ -8,6 +8,7 @@ use common\models\db\Covers;
 use common\models\db\CoverWidgets;
 use common\models\db\VkUserGroups;
 use common\models\forms\WidgetForm;
+use common\models\VK;
 use Yii;
 use yii\web\UploadedFile;
 
@@ -157,6 +158,19 @@ class CoversController extends \yii\web\Controller
         $tmpName = '/tmp_' . time() . '_' . $fileName;
         $coverImg->writeImage($path . $tmpName);
         $imgUrl = Yii::$app->request->baseUrl . '/covers/' . Yii::$app->user->id . $tmpName;
+
+        $cover->img_result = Yii::$app->request->baseUrl . '/covers/' . Yii::$app->user->id . '/result_' . $fileName;
+        $cover->save();
+
+        if(isset($post['use'])){
+            $vk = new VK([
+                'client_id' => '6301353',
+                'client_secret' => 'jV9DdZuX0bb6sA6E4X8r',
+                'access_token' => '51a45c1161c9e972bc6f891a5b56073c6307301c8eec609b1ba93b1eb8bc0b7db7a44300b2e11db0a1d2b',
+            ]);
+            $vk->addOwnerCoverPhoto($cover->owner_id, $path . '/result_' . $fileName);
+        }
+
         echo json_encode([
             'status' => 200,
             'imgUrl' => $imgUrl,
